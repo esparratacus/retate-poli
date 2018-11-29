@@ -1,0 +1,6 @@
+<div class="row">
+  <% @open_challenges.each do |c| %>
+    <%= render partial: 'shared/challenge_card',locals:{challenge: c.challenge} %>
+  <% end %>
+</div>
+

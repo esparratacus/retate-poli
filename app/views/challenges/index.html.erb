@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <% @challenges.each do |challenge| %>
+    <%=  render 'shared/challenge_card',challenge: challenge%>
+  <% end %>
+</div>
+<div class="fixed-action-btn">
+  <%= link_to new_challenge_path,class:'waves-effect waves-light btn btn-floating btn-large teal' do %>
+    <i class="large material-icons">add</i>
+  <%end %>
+</div>
+
+
+

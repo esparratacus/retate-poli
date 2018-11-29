@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SomosPoli</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <header class="navbar-fixed">
+      <nav class=" #{@color} darken-1">
+        <div class="nav-wrapper container">
+          <a href="#" id="sidenav" data-target="slide-out" class="button-collapse sidenav-trigger show-on-large" data-turbolinks="false"><i class="material-icons right">apps</i></a>
+          <a href="/" class="logo-container brand-logo"></a>
+          <ul id="nav-right" class="right">
+            <li><a href="/">Inicio</a></li>
+            <% if user_signed_in? %>
+              <li><a href="#!" class="dropdown-button"><span><%= current_user.email %></span></a></li>
+              <% else %>
+            <li>
+              <%= link_to 'Iniciar sesión',new_user_session_url %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <% if user_signed_in? %>
+    <aside>
+      <%= render 'layouts/sidebar' %>
+    </aside>
+    <main>
+      <%end %>
+      <%if devise_controller? %>
+        <section id="login" class="container-fluid pt-3">
+          <div class="row">
+            <div class="col s4 offset-s4">
+              <%= yield %>
+            </div>
+          </div>
+        </section>
+      <%else%>
+        <div class="container">
+          <%=  yield %>
+        </div>
+      <%end %>
+    </main>
+  </body>
+</html>

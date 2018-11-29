@@ -1,0 +1,54 @@
+<ul id="slide-out" class="sidenav">
+  <li>
+    <div class="user-view">
+      <div class="background">
+        <%= image_tag 'ocean.jpg'%>
+      </div>
+      <a href="#!user">
+        <%= image_tag "default_user.jpeg" ,class: 'circle'%>
+      </a>
+      <a href="#!name">
+        <span class="white-text name"> usuario </span>
+      </a>
+      <a href="">
+        <span class="white-text" email> example@example.com</span>
+      </a>
+    </div>
+  </li>
+  <li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
+      <li class="">
+        <a class="collapsible-header" tabindex="0">Perfil<i class="material-icons">arrow_drop_down</i></a>
+        <div class="collapsible-body" style="display: block">
+          <ul>
+            <li>
+              <a href=""><span>Mis retos</span></a>
+            </li>
+            <li>
+              <a href=""><span>Mis insignias</span></a>
+            </li>
+            <li>
+              <a href="#retos"><span>Retos en curso</span></a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
+  <% if current_user.has_role? :challenge_admin %>
+  <li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
+      <li class="">
+        <a class="collapsible-header" tabindex="0">Administración<i class="material-icons">arrow_drop_down</i></a>
+        <div class="collapsible-body" style="display: block">
+          <ul>
+            <li>
+              <a href="/challenges"><span>Retos</span></a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
+<%end %>
+</ul>

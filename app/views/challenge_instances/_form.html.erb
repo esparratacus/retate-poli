@@ -1,0 +1,37 @@
+<%= simple_form_for(@challenge_instance,url:challenge_challenge_instance_url(@challenge_instance.challenge_id)) do |form| %>
+  <% if @challenge_instance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(challenge_instance.errors.count, "error") %> prohibited this challenge_instance from being saved:</h2>
+
+      <ul>
+      <% @challenge_instance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col s3">
+      <div class="input-field">
+        <label>
+          <input type="checkbox" name="challenge_instance[is_active]" value="<%= @challenge_instance.is_active %>" <%=  'checked' if @challenge_instance.is_active? %>>
+          <span>Activa</span>
+        </label>
+      </div>
+      </div>
+    <div class="col s3">
+      <div class="input-field">
+        <label>
+          <input type="checkbox" name="challenge_instance[is_public]" value="<%= @challenge_instance.is_public  %>" <%= 'checked' if @challenge_instance.is_public? %>>
+          <span>Pública</span>
+        </label>
+      </div>
+    </div>
+    <div class="col s3">
+        <%= form.input :closed_on%>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary mb-2">Guardar</button>
+<% end %>

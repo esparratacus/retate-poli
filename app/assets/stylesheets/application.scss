@@ -1,0 +1,8 @@
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "materialize/components/color-variables";
+$primary-color: color("blue", "lighten-2") !default;
+$secondary-color: color("yellow", "base") !default;
+@import "font-awesome";
+@import "materialize";
+@import "custom";
+@import "devise";

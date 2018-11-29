@@ -1,0 +1,12 @@
+<div class="col l3 m3 s12">
+  <div class="card">
+    <div class="card-image">
+      <%= image_tag challenge.challenge_image.url ,class: 'circle' do%>
+        <span class="card-title"><%= challenge.name %>></span>
+        <%end %>
+    </div>
+    <div class="card-content">
+      <p><%= challenge.description %></p>
+    </div>
+  </div>
+</div>

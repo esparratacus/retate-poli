@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'form' %>
+
+<div class="row">
+  <div class="col s12">
+    <div class="card material-table">
+      <div class="table-header">
+        <h5>Instancias de este reto</h5>
+        <div class="actions" data-turbolinks="false"></div>
+      </div>
+      <table id="dttb" class="responsive nowrap table table-hover" data-sort="true" data-source="<%= challenge_challenge_instances_path(@challenge.id,format: :json)%>">
+        <thead>
+        <tr>
+          <th data-data="id">id</th>
+          <th data-data="is_active">Estado</th>
+          <th data-data="is_public">Público</th>
+          <th data-data="closed_on">Fecha de cierre</th>
+          <th data-data="url" data-orderable="false" data-class-name="all right-align" data-searchable="false" class="skip-export" width="100px"></th>
+        </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="fixed-action-btn">
+  <a href="<%= new_challenge_challenge_instance_path(@challenge.id) %>" id="newpost" class="waves-effect waves-light btn btn-floating btn-large cyan"><i class="large material-icons">add</i></a>
+</div>
+
+<table class="table table-sm">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Estado</th>
+    <th scope="col">Tipo</th>
+    <th scope="col">Fecha de cierre</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @challenge.challenge_instances.each do |ci| %>
+    <tr>
+      <th scope="row"><%= ci.id %></th>
+      <td><%= ci.is_active? ? 'activo' : 'inactivo' %></td>
+      <td><%= ci.is_public? ? 'público' : 'privado' %></td>
+      <td><%= ci.closed_on.nil? ? 'sin definir': ci.closed_on %></td>
+    </tr>
+  <%end %>
+
+  </tbody>
+</table>
+<%= link_to 'Editar', edit_challenge_path(@challenge) %> |
+<%= link_to 'Atrás', challenges_path %>

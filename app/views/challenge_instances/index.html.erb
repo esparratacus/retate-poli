@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Challenge Instances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @challenge_instances.each do |challenge_instance| %>
+      <tr>
+        <td><%= link_to 'Show', challenge_instance %></td>
+        <td><%= link_to 'Edit', edit_challenge_instance_path(challenge_instance) %></td>
+        <td><%= link_to 'Destroy', challenge_instance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Challenge Instance', new_challenge_instance_path %>
